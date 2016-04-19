@@ -1,0 +1,111 @@
+____________________________________________________________________________________________________
+4-30 MEETING
+
+Login
+	1) ***Based on User, load correct page (AR)
+		0 - Admin
+		1 - Supervisor/Manager
+			0 - Non exempt
+			1 - Exempt
+		2 - Regular 
+			0 - Non exempt
+			1 - Exempt
+	2) Cookies (YW, AR)
+	3) Forgot password (YW, AR)
+
+TimeSheet
+	1) Load user info for page (AR)
+		Need id tags (JM)
+	2) ***Send and Save table input to DB (AS)
+	3) ***Retrieve saved table (AS)
+	4) ***Sum hours into autofill (AR)
+	5) ***Dynamically load timesheet table based on user type (JM, YM)
+	6) ***Load Timesheet dropdown for previous pay periods (AS)
+	7) Complete export functionality (Depends on 2 and 3)
+		PDF
+		EMail
+		Print
+	8) Submit: set flag for supervisor to be reviewed 
+		Once supervisor approves, user can no longer edit 
+	9) Calendar and Dates on left side
+		First day on timesheet is first day of pay period
+		Input pay periods for the year manually
+
+Forms
+	~1) Fix alignment, logout, forms (JM)
+	2) Add Company/Branch: DB tables set up (AS)
+		Submit: Save to DB
+	3) Add Manager/Employee --- Same as above (AS)
+
+View Employees (JM)
+	Table of employees associated with manager
+		This is where they will approve for payroll --- Link to their timesheet
+		1) Manager Approved Date/Flag/Checkmark 
+		2) Employee Submitted Date/Flag
+		3) Name
+		4) Job Title
+		5) Exempt Status
+		6) Pay Period Start Date
+		7) Pay Period End Date
+
+~Forgot Password (JM)
+	~See system admin 	
+
+Extras
+	Cancelling: User, Company, Branch
+	Comments on over time
+	Redo SRS?
+
+Presentation
+	SDD Document
+	PPT Presentation
+
+____________________________________________________________________________________________________
+INFO FROM JAMES (jschram@mlhc.com)
+
+Forms
+	1. Adding a company – a company would have three fields
+	    a. ID – alpha (PTC, NCS etc.)
+	    b. Name – alpha (Placer Title Company, National Closing Solutions etc.)
+	    c. Closed – date
+
+	2. Adding a Branch - In addition to the company you need a branch it would have 4 fields
+		a. ID – numeric (99, 101, etc.)
+	    b. Name – alpha (Expert Tech Group, Roseville, etc.)
+	    c. Company – associate to Company table
+
+	3. Manger/Employee – managers and employees would be in the same table with 9 fields
+	    a. ID – alphanumeric (AAA110)
+	    b. Name – alphanumeric (John Doe 3rd, Mary Smith etc.)
+	    c. Branch – associate to the Branch table
+	    d. Company – associate to the Company table
+	    e. Job Title – in a perfect design there would be a table defining jobs but it can be a plain text field (alphanumeric)
+	    f. Manager – Boolean (Yes/No) flag
+	    g. Supervisor – associate to a Manger/Employee record designating their Manager
+	    h. Hire Date – date
+	    i. Terminated - date
+
+2015 Pay Period Dates
+	February 23 - March 8 
+	March 9 - March 24 
+	March 25 - April 8 
+	April 9 - April 23 
+	April 24 - May 10 
+	May 11 - May 20 
+	May 21 - June 8 
+	June 9 - June 23 
+	June 24 - July 8 
+	July 9 - July 26 
+	July 27 - August 9 
+	August 10 - August 24 
+	August 25 - September 8 
+	September 9 - September 23 
+	September 24 - October 8 
+	October 9 - October 25 
+	October 26 - November 5 
+	November 6 - November 19 
+	November 20 - December 8 
+	December 9 - December 22
+____________________________________________________________________________________________________
+
+

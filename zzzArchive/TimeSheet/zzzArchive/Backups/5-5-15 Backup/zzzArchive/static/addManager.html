@@ -1,0 +1,135 @@
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="css/mainStyle.css"/>
+		<title> MLHC Manager - Employee </title>
+	</head>
+
+	<body>
+		<div>
+			<div id="header1"> </div>
+			<div id="header2"> </div>
+			<div id="header3"> </div>
+			<div>
+				<center>
+					<ul id="navBar">
+						<li><a href="admin.html" > TimeSheet </a></li> 
+						<li> <a href="addCompany.html" > Add Company - Branch </a> </li> 
+						<li> <a href="addManager.html" > Add Manager - Employee</a> </li>
+						<li> <a href="viewEmployees.html" > View Employees </a> </li>
+					</ul>
+				</center>
+			</div>
+			<div id="logo"><a href="admin.html"><img src="images/MLHC.png"></a></div>
+			<p id="logout"> <a href="login.html"> Logout </a> </p>
+		</div>
+
+		<div style="margin-top: -15px;">	
+			<table id="userInfoTable">
+				<tr>
+					<th style="padding:5px;"> Name: </th>
+					<th style="padding:5px;"> EMPLOYEES NAME </th>
+					<th style="padding:5px;"> Company: </th>
+					<th style="padding:5px;"> EMPLOYEES COMPANY </th>
+					<th style="padding:5px;"> Pay Period Start: </th>
+					<th style="padding:5px;"> START DATE </th>
+				</tr>
+				<tr>
+					<th style="padding:5px;"> ID Number: </th>
+					<th style="padding:5px;"> EMPLOYEES ID </th>
+					<th style="padding:5px;"> Branch Number: </th>
+					<th style="padding:5px;"> EMP BRANCH NUMBER </th>
+					<th style="padding:5px;"> Pay Period End: </th>
+					<th style="padding:5px;"> END DATE </th>
+				</tr>
+				<tr>
+					<th style="padding:5px;"> Exempt Status: </th>
+					<th style="padding:5px;"> EXEMPT STATUS </th>
+					<th style="padding:5px;"> Manager: </th>
+					<th style="padding:5px;"> EMP MANAGER </th>
+				</tr>
+			</table>
+
+			<ul id="options">
+				<li> 
+					<p style="margin-right: 55px;"> TimeSheets: </p>
+					<select id="selector" style="margin-right:20px">
+						<option> TimeSheet 1 </option>
+						<option> TimeSheet 2 </option>
+						<option> TimeSheet 3 </option>
+						<option> TimeSheet 4 </option>
+						<option> TimeSheet 5 </option>
+						<option> TimeSheet 6 </option>
+						<option> TimeSheet 7 </option>
+					</select>
+				</li>
+				<li>
+					<p style="margin-right: 30px"> Export Options: </p>
+					<select id="selector">
+						<option> Email TimeSheet </option>
+						<option> Save TimeSheet </option>
+						<option> Print TimeSheet </option>
+					</select>
+				</li>
+				<br>
+				<li>
+					<button type="button" onclick="alert('TimeSheet Saved')"> Save TimeSheet </button>
+					<button type="button" onclick="alert('TimeSheet Submitted')"> Submit TimeSheet </button>
+				</li>
+			</ul>
+		</div>
+
+		<form class="form">
+			<center>
+				<table>
+					<tr>
+						<td id="formTitle"> ID: </td>
+						<td><input id="empID" type="text"></td>
+						<td></td>
+						<td id="formTitle"> Name: </td>
+						<td><input id="empName" type="text"></td>
+					</tr>
+					<tr>
+						<td id="formTitle"> Company: </td>
+						<td><input id="empComp" type="text"></td>
+						<td></td>
+						<td id="formTitle"> Branch: </td>
+						<td><input id="empBranch" type="text"></td>
+					</tr>
+					<tr>
+						<td id="formTitle"> Job Title: </td>
+						<td><input id="empTitle" type="text"></td>
+					</tr>
+					<tr>
+						<td id="formTitle"> Manager: </td>
+						<td><input id="empManager" type="text"></td>
+						<td></td>
+						<td id="formTitle"> Supervisor: </td>
+						<td><input id="empSupervisor" type="text"></td>
+					</tr>
+					<tr>
+						<td id="formTitle"> Hire Date: </td>
+						<td><input id="empHire" type="text"></td>
+						<td></td>
+						<td id="formTitle"> Termination Date: </td>
+						<td><input id="empTerminate" type="text"></td>
+					</tr>
+				</table>
+
+				<div id="statusOpts">
+					<form>
+						Manager Status?
+						<input type="radio" name="manager" value="yes"> Yes
+						<input type="radio" name="manager" value="no" checked> No
+						<br>
+						Exempt Status?
+						<input type="radio" name="exempt" value="exempt"> Yes
+						<input type="radio" name="exempt" value="non-exempt" checked> No
+					</form> 
+				</div>
+				<br>
+				<button type="button" id="addEmp" onclick="alert('Company Added')"> Add Employee </button>
+				<!--input type=button onClick="parent.location='admin.html'" value='Login'-->
+			</center>
+		</form>
+	</body>
+</html>

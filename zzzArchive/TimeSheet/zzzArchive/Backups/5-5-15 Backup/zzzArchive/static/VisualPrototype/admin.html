@@ -1,0 +1,1480 @@
+<html>
+	<head>
+		<!--FOR PROTOPLASM TIME PICKER-->
+		<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+		<script type="text/javascript" async="" src="./Protoplasm_files/ga.js"></script>
+		<script type="text/javascript" language="javascript" src="./Protoplasm_files/prototype.js"></script>
+		<style type="text/css"></style>
+		<script type="text/javascript" language="javascript" src="./Protoplasm_files/scriptaculous.js"></script>
+		<script type="text/javascript" src="./Protoplasm_files/builder.js"></script>
+		<script type="text/javascript" src="./Protoplasm_files/effects.js"></script>
+		<script type="text/javascript" src="./Protoplasm_files/dragdrop.js"></script>
+		<script type="text/javascript" src="./Protoplasm_files/controls.js"></script>
+		<script type="text/javascript" src="./Protoplasm_files/slider.js"></script>
+		<script type="text/javascript" src="./Protoplasm_files/sound.js"></script>
+		<script type="text/javascript" language="javascript" src="./Protoplasm_files/protoplasm.js"></script>
+		<script type="text/javascript" language="javascript" src="./Protoplasm_files/common.js"></script>
+		<link rel="stylesheet" type="text/css" href="./Protoplasm_files/protoplasm.css">
+		<script type="text/javascript" src="./Protoplasm_files/ratingbar.js"></script>
+		<link rel="stylesheet" type="text/css" href="./Protoplasm_files/rating.css">
+		<script type="text/javascript" language="javascript">
+			Protoplasm.use('timepicker')
+			.transform('input.timepicker')
+			.transform('input.timepicker2', {use24hrs: true});
+		</script>
+		<script type="text/javascript" src="./Protoplasm_files/timepicker.js"></script>
+		<link rel="stylesheet" type="text/css" href="./Protoplasm_files/timepicker.css">
+		<!--FOR PROTOPLASM TIME PICKER-->
+
+		<link type="text/css" rel="stylesheet" href="css/timeSheetStyle.css"/>
+		<title> MLHC Admin </title>
+	</head>
+
+	<!--body background= "images/sky2.jpg" style="background-size: 100% 100%; background-color: #21CBFC;"-->
+	<body>
+		<div>
+			<div id="header1"> </div>
+			<div id="header2"> </div>
+			<div id="header3"> </div>
+			<div>
+				<center>
+					<ul id="navBar">
+						<li> <a href="addCompany.html" > Add Company </a> </li> 
+						<li> <a href="addManager.html" > Add Manager </a> </li>
+						<li> <a href="addEmployee.html" > Add Employee </a> </li>
+						<li> <a href="viewEmployees.html" > View Employees </a> </li>
+					</ul>
+				</center>
+			</div>
+			<div id="logo"><a href="http://mlhc.com" target="_blank"><img src="images/MLHC.png"></a></div>
+			<p id="logout"> <a href="login.html"> Logout </a> </p>
+		</div>
+
+		<div style="margin-top: -15px;">	
+			<table id="userInfoTable">
+				<tr>
+					<th style="padding:5px;"> Name: </th>
+					<th style="padding:5px;"> EMPLOYEES NAME </th>
+					<th style="padding:5px;"> Company: </th>
+					<th style="padding:5px;"> EMPLOYEES COMPANY </th>
+					<th style="padding:5px;"> Pay Period Start: </th>
+					<th style="padding:5px;"> START DATE </th>
+				</tr>
+				<tr>
+					<th style="padding:5px;"> ID Number: </th>
+					<th style="padding:5px;"> EMPLOYEES ID </th>
+					<th style="padding:5px;"> Branch Number: </th>
+					<th style="padding:5px;"> EMP BRANCH NUMBER </th>
+					<th style="padding:5px;"> Pay Period End: </th>
+					<th style="padding:5px;"> END DATE </th>
+				</tr>
+				<tr>
+					<th style="padding:5px;"> Exempt Status: </th>
+					<th style="padding:5px;"> EXEMPT STATUS </th>
+					<th style="padding:5px;"> Manager: </th>
+					<th style="padding:5px;"> EMP MANAGER </th>
+				</tr>
+			</table>
+
+			<ul id="options">
+				<li> 
+					<p style="margin-right: 55px;"> TimeSheets: </p>
+					<select id="selector" style="margin-right:20px">
+						<option> TimeSheet 1 </option>
+						<option> TimeSheet 2 </option>
+						<option> TimeSheet 3 </option>
+						<option> TimeSheet 4 </option>
+						<option> TimeSheet 5 </option>
+						<option> TimeSheet 6 </option>
+						<option> TimeSheet 7 </option>
+					</select>
+				</li>
+				<li>
+					<p style="margin-right: 30px"> Export Options: </p>
+					<select id="selector">
+						<option> Email TimeSheet </option>
+						<option> Save TimeSheet </option>
+						<option> Print TimeSheet </option>
+					</select>
+				</li>
+				<br>
+				<li>
+					<button type="button" onclick="alert('TimeSheet Saved')"> Save TimeSheet </button>
+					<button type="button" onclick="alert('TimeSheet Submitted')"> Submit TimeSheet </button>
+				</li>
+			</ul>
+		</div>
+
+		<form>
+			<table class="timeSheet" style="background-color: #21CBFC;">
+			  <tr>
+			    <th width="185px" colspan="2"> Day </th>
+			    <th> Time In </th>		
+			    <th> Time Out </th>
+			    <th> Time In </th>		
+			    <th> Time Out </th>
+			    <th> Reg Hours </th>		
+			    <th> OT Hours </th>
+			    <th> Holiday </th>		
+			    <th> Vacation </th>
+			    <th> Sick </th>		
+			    <th> Unpaid </th>
+			    <th> BL </th>		
+			    <th> Jury Duty </th>
+			    <th> Total </th>		
+			  </tr>
+			  <tr> 
+			  	<td> Monday </td>
+			  	<td> 4/1/15 </td>
+			  	<!--td><form onsubmit="return false;"><span><input style="margin-top: 0;" class="timepicker"></span></form></td> 
+			  	<td><form onsubmit="return false;"><span><input class="timepicker"></span></form></td> 
+			  	<td><form onsubmit="return false;"><span><input class="timepicker"></span></form></td> 
+			  	<td><form onsubmit="return false;"><span><input class="timepicker"></span></form></td--> 
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td> AUTOFILL </td> 
+			  	<td> AUTOFILL </td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td> AUTOFILL </td> 
+			  </tr>
+			  <tr> 
+			  	<td> Monday </td>
+			  	<td> 4/1/15 </td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td> AUTOFILL </td> 
+			  	<td> AUTOFILL </td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td> AUTOFILL </td> 
+			  </tr>
+			  <tr> 
+			  	<td> Monday </td>
+			  	<td> 4/1/15 </td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td> AUTOFILL </td> 
+			  	<td> AUTOFILL </td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td> AUTOFILL </td> 
+			  </tr>
+			  <tr> 
+			  	<td> Monday </td>
+			  	<td> 4/1/15 </td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td> AUTOFILL </td> 
+			  	<td> AUTOFILL </td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td> AUTOFILL </td> 
+			  </tr>
+			  <tr> 
+			  	<td> Monday </td>
+			  	<td> 4/1/15 </td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td> AUTOFILL </td> 
+			  	<td> AUTOFILL </td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td> AUTOFILL </td> 
+			  </tr>
+			  <tr> 
+			  	<td> Monday </td>
+			  	<td> 4/1/15 </td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td> AUTOFILL </td> 
+			  	<td> AUTOFILL </td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td> AUTOFILL </td> 
+			  </tr>
+			  <tr> 
+			  	<td> Monday </td>
+			  	<td> 4/1/15 </td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td> AUTOFILL </td> 
+			  	<td> AUTOFILL </td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td> AUTOFILL </td> 
+			  </tr>
+			  <tr> 
+			  	<td> Monday </td>
+			  	<td> 4/1/15 </td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td> AUTOFILL </td> 
+			  	<td> AUTOFILL </td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td> AUTOFILL </td> 
+			  </tr>
+			  <tr> 
+			  	<td> Monday </td>
+			  	<td> 4/1/15 </td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td> AUTOFILL </td> 
+			  	<td> AUTOFILL </td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td> AUTOFILL </td> 
+			  </tr>
+			  <tr> 
+			  	<td> Monday </td>
+			  	<td> 4/1/15 </td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td> AUTOFILL </td> 
+			  	<td> AUTOFILL </td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td> AUTOFILL </td> 
+			  </tr>
+			  <tr> 
+			  	<td> Monday </td>
+			  	<td> 4/1/15 </td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td> AUTOFILL </td> 
+			  	<td> AUTOFILL </td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td> AUTOFILL </td> 
+			  </tr>
+			  <tr> 
+			  	<td> Monday </td>
+			  	<td> 4/1/15 </td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td> AUTOFILL </td> 
+			  	<td> AUTOFILL </td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td> AUTOFILL </td> 
+			  </tr>
+			  <tr> 
+			  	<td> Monday </td>
+			  	<td> 4/1/15 </td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td> AUTOFILL </td> 
+			  	<td> AUTOFILL </td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td> AUTOFILL </td> 
+			  </tr>
+			  <tr> 
+			  	<td> Monday </td>
+			  	<td> 4/1/15 </td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td> AUTOFILL </td> 
+			  	<td> AUTOFILL </td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td> AUTOFILL </td> 
+			  </tr>
+			  <tr> 
+			  	<td> Monday </td>
+			  	<td> 4/1/15 </td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td><input class="timepicker"></td>
+			  	<td> AUTOFILL </td> 
+			  	<td> AUTOFILL </td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td>
+			  		<select>
+						<option> None </option>
+						<option> 1 Hour </option>
+						<option> 2 Hours </option>
+						<option> 3 Hours </option>
+						<option> 4 Hours </option>
+						<option> 5 Hours </option>
+						<option> 6 Hours </option>
+						<option> 7 Hours </option>
+						<option> 8 Hours </option>
+					</select>
+			  	</td> 
+			  	<td> AUTOFILL </td> 
+			  </tr>
+			  <tr> 
+			  	<td colspan="6"> Total Hours </td> 
+			  	<td> AUTOFILL </td> 
+			  	<td> AUTOFILL </td> 
+			  	<td> AUTOFILL </td> 
+			  	<td> AUTOFILL </td> 
+			  	<td> AUTOFILL </td> 
+			  	<td> AUTOFILL </td> 
+			  	<td> AUTOFILL </td> 
+			  	<td> AUTOFILL </td> 
+			  	<td> AUTOFILL </td> 
+			  </tr>
+			</table>
+		</form>
+	</body>
+</html>

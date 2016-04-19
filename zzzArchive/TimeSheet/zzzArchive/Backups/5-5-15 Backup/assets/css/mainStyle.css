@@ -1,0 +1,128 @@
+#header1{
+	height: 42;
+	margin: -15 -10 0 -10;
+	background-color: #00366C;
+}
+#header2{
+	height: 7;
+	margin: 0 -10 0 -10;
+	background-color: #2DBFFF;
+}
+#header3{
+	height: 14;
+	margin: 0 -10 0 -10;
+	background-color: #FEC626;
+}
+#logo{
+	margin: -50 0 25 0;
+}
+#logo img{
+	width: 18%; 
+	height: auto;
+}
+#navBar{
+	font-size:20;     
+    width: 900px;
+    padding: 4px;
+    text-transform: uppercase;
+    margin-left:150px;
+    margin-top: 0px;
+    border-top-style: none;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-color: #FEC626;
+}
+#navBar li{
+	display: inline; 
+	margin-right: 10px;
+}
+#logout{
+	margin-right: 1%;
+	float: right;
+}
+#userInfoTable{
+	width: 70%;
+	display: inline-block; 
+	vertical-align: top; 
+	text-align: left;
+}
+#selector{
+	font-size: 20;
+	margin: 10 0 0 0;
+}
+#options{
+	display: inline-block; 
+	vertical-align: top; 
+	margin-top: -10; 
+	list-style-type: none;
+}
+#options p{
+	display:inline;
+}
+#options button{
+	font-size: 14;
+	margin-right: 22;
+}
+table.timeSheet{
+	width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+    table-layout: fixed; /***************FIXES EVERYTHING******************/
+}
+table.timeSheet th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: center;
+}
+.timepicker{
+	width: 100%; 
+	margin: 0 0 0 -3
+}
+
+
+
+.form{
+	margin-top: 25;
+}
+.form tr, .form td{
+	border: none;
+	text-align: center;
+}
+.form td:empty{
+    width: 50;
+}
+#formTitle{
+	font-size: 23;
+}
+#compID, #compName, #compDate, #branchID, #branchName, #assocComp,
+#empID, #empName, #empComp, #empBranch, #empTitle, #empManager, #empSupervisor, #empHire, #empTerminate
+{
+	height: 25;
+	font-size: 19;
+}
+#addComp, #addBranch, #addEmp{
+	font-size: 14;
+	margin-top: 10;
+}
+#statusOpts{
+	font-size: 20;
+	margin-top: 10;
+}
+
+
+
+.viewEmp{
+	width: 80%;
+    border: 1px solid black;
+    border-collapse: collapse;
+    /*table-layout: fixed; /***************FIXES EVERYTHING******************/
+}
+.viewEmp th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: center;
+}
+}

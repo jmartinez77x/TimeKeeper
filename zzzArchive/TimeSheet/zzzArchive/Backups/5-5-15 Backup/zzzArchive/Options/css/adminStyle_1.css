@@ -1,0 +1,68 @@
+#header1{
+	height: 42;
+	margin: -15 -10 0 -10;
+	background-color: #00366C;
+}
+#header2{
+	height: 7;
+	margin: 0 -10 0 -10;
+	background-color: #2DBFFF;
+}
+#header3{
+	height: 14;
+	margin: 0 -10 0 -10;
+	background-color: #FEC626;
+}
+#logo{
+	margin: 7 0 25 0;
+}
+#logout{
+	margin: 0 0 0 0;
+	float: right;
+}
+#sideMenu{
+	float: left;
+	border-top: thin solid #000000;
+	border-right: thin solid #000000;
+	font-size: 18;
+	margin: 0 20 0 0;
+}
+#sideList{
+	margin: 15 10 14 0;
+}
+table.timeSheet{
+	width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+    table-layout: fixed; /***************FIXES EVERYTHING******************/
+}
+table.timeSheet th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: center;
+}
+#input{
+	font-size: 15;
+	width: 50px;
+}
+#userInfoTable{
+	width: 50%;
+	text-align: left;
+	font-weight: normal;
+}
+#selector{
+	font-size: 20;
+	margin: 10 0 0 0;
+}
+/*
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+}
+</style>
+*/

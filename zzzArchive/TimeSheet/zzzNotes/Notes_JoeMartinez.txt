@@ -1,0 +1,33 @@
+Design
+	http://www.mlhc.com/
+	http://www.placertitle.com/family-companies
+	http://www.activity-book.co.uk/tools/timesheet/
+
+Technical
+	http://www.sitepoint.com/php-amp-mysql-1-installation/
+	http://jsfiddle.net/scMFC/ ----- display: inline-block;
+	http://www.w3schools.com/angular/angular_tables.asp
+	http://stackoverflow.com/questions/14909714/synchronize-github-with-godaddy-account
+
+CSUS Timesheet Stuff 
+	https://www.youtube.com/watch?v=nC2E2KMzfhk&feature=youtu.be
+	http://www.enterprises.csus.edu/payroll/timeonline/
+
+SRS
+	https://docs.google.com/document/d/15lWpGLqlLFlvgfSvpotIupsGNEZmBF2gupspwap7h-E/edit
+
+mltimeportal.com
+Name: mltimeportaldb
+Username: admlib
+Hostname: 184.168.194.60
+Port: 1433
+Password: cowabunga	
+_____________________________________________________________________________________________________________
+
+---
+_____________________________________________________________________________________________________________
+
+
+
+
+
